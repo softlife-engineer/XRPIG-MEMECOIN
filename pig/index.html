@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>🐷 XRPIG</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffcccb;
+            text-align: center;
+            overflow-x: hidden;
+            animation: fadeIn 1.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: #ff66b2;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .navbar:hover {
+            background: #ff3399;
+        }
+        
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            display: none;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #ff66b2;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links.active + .content {
+                margin-top: 120px;
+            }
+        }
+        
+        .hero {
+            margin-top: 80px;
+            animation: bounce 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .hero img {
+            width: 150px;
+            height: auto;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .buy-btn {
+            background: #ff6699;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .buy-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        #contract-address {
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .section {
+            background: #ffb6c1;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 15px;
+            width: 80%;
+        }
+
+        .fa-x-twitter{
+            font-size: 30px;
+            color: black;
+        }
+
+        .fa-telegram{
+            font-size: 30px;
+            color: black;
+        }
+
+        .fa-discord{
+            font-size: 30px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">🐷 XRPIG</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#buy">Buy</a></li>
+            <li><a href="#socials">Socials</a></li>
+        </ul>
+    </nav>
+    
+    <div class="content">
+        <header class="hero section">
+            <div>
+                <h1>Welcome to XRPIG!</h1>
+                <p>The ultimate meme coin that's bringing home the bacon!</p>
+                <button class="buy-btn" onclick="window.location.href='https://dexscreener.com/solana/etbsqzpyrhexbaeyewzzp8ldqfue612sbpaa9h91ncob'">Buy Now</button>
+            </div>
+            <img src="/pig.jpg" alt="Pig Image">
+        </header>
+        
+        <section id="about" class="about section">
+            <h2>Why XRPIG</h2>
+            <p>Oink your way to the moon with the latest and greatest meme coin in the crypto space!
+                Get ready to be part of meme history and be part of ultimate meme comeback.
+            </p>
+            <img src="/pig trade.jpg" width="150px" height="auto" alt="Pig Image">
+        </section>
+        
+        <section id="buy" class="buy section">
+            <h2>Contract Address</h2>
+            <p id="contract-address">SOL: ETbsQZpyrHEXbAEyEWZzP8LdQFuE612SBpaA9H91nc</p>
+            <button onclick="copyAddress()">Copy</button>
+
+            
+            <p id="contract-address">BASE: 0x52D2C83a3b7A1E29b81AaDC6Ffe3A586D672ec2c</p>
+            <button onclick="copyAddress()">Copy</button>
+        </section>
+        
+        <section id="socials" class="socials section">
+            <h2>Join Us</h2>
+            <a href="https://x.com/xrpigtoken?s=21">
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+
+            <a href="#">
+                <i class="fa-brands fa-telegram"></i>
+            </a>
+           
+            <a href="#">
+                <i class="fa-brands fa-discord"></i>
+            </a>
+          
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
